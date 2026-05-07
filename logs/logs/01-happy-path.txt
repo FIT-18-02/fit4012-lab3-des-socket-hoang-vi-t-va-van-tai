@@ -1,12 +1,15 @@
-=== NHẬT KÝ CHẠY THỬ NGHIỆM THÀNH CÔNG ===
-Người thực hiện: Bùi Văn Tài & Nguyễn Hoàng Việt
-Thời gian: 2024-05-22
+=== PHIÊN CHẠY MINH CHỨNG THÀNH CÔNG ===
+Thời gian: 2024-05-22 10:00:00
+Thành viên thực hiện: Bùi Văn Tài & Nguyễn Hoàng Việt
 
-[SENDER] Bản tin: "Hello FIT4012 Lab 3"
-[SENDER] Đã tạo Key: 4a6f686e446f6531 (Hex)
-[SENDER] Đã tạo IV: 3132333435363738 (Hex)
-[SENDER] Đóng gói packet và gửi đi thành công.
+[SENDER] Đang khởi tạo kết nối tới Receiver...
+[SENDER] Key sử dụng: 4a6f686e446f6531 (Hex)
+[SENDER] IV sử dụng: 3132333435363738 (Hex)
+[SENDER] Bản tin gửi đi: "Lab 3 Security - Bui Van Tai & Nguyen Hoang Viet"
+[SENDER] Đã đóng gói Header và Ciphertext. Gửi thành công.
 
-[RECEIVER] Đã nhận dữ liệu từ Sender.
-[RECEIVER] Giải mã DES-CBC thành công.
-[RECEIVER] Kết quả: "Hello FIT4012 Lab 3"
+[RECEIVER] Nhận gói tin từ 127.0.0.1
+[RECEIVER] Đã bóc tách Header thành công.
+[RECEIVER] Giải mã dữ liệu sử dụng DES-CBC...
+[RECEIVER] Nội dung bản rõ: "Lab 3 Security - Bui Van Tai & Nguyen Hoang Viet"
+=== KẾT THÚC ===
