@@ -1,0 +1,13 @@
+=== PHIÊN CHẠY MINH CHỨNG - NEGATIVE TEST (TAMPER) ===
+Thời điểm: 2024-05-22 14:45:00
+Người thực hiện: Nguyễn Hoàng Việt
+
+TÌNH HUỐNG: Giả lập kẻ tấn công sửa đổi 1 byte trong Ciphertext trên đường truyền.
+
+[SENDER] Đã gửi gói tin mã hóa.
+[ATTACKER] (Giả lập) Thay đổi byte cuối cùng của Ciphertext.
+[RECEIVER] Nhận gói tin đã bị can thiệp.
+[RECEIVER] Đang giải mã với Key/IV đúng...
+[RECEIVER] LỖI XẢY RA: ValueError: Padding PKCS#7 không hợp lệ.
+
+KẾT QUẢ: HỆ THỐNG PHÁT HIỆN DỮ LIỆU KHÔNG CÒN TOÀN VẸN.
