@@ -1,0 +1,17 @@
+=== PHIÊN CHẠY MINH CHỨNG - HAPPY PATH ===
+Thời điểm: 2024-05-22 14:30:00
+Người thực hiện: Bùi Văn Tài (Sender) & Nguyễn Hoàng Việt (Receiver)
+
+[RECEIVER] Đang lắng nghe tại cổng 6000...
+[SENDER] Đang kết nối tới 127.0.0.1:6000
+[SENDER] Bản tin gốc: "Xin chao FIT4012 - Lab 3 DES Socket"
+[SENDER] Key tạo ra (Hex): 4a6f686e446f6531
+[SENDER] IV tạo ra (Hex): 3132333435363738
+[SENDER] Đã đóng gói và gửi Packet (20 bytes header + 32 bytes ciphertext)
+
+[RECEIVER] Đã nhận gói tin từ Sender.
+[RECEIVER] Parsing Header: Key, IV và Length hợp lệ.
+[RECEIVER] Giải mã thành công...
+[RECEIVER] Nội dung nhận được: "Xin chao FIT4012 - Lab 3 DES Socket"
+
+KẾT QUẢ: THÀNH CÔNG
