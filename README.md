@@ -11,110 +11,82 @@ Bài lab bám theo luồng hệ thống trong file hướng dẫn: Sender tạo 
 - Cả hai đều phải hiểu toàn bộ hệ thống, không được chia kiểu “một bạn ôm hết, một bạn ngồi cổ vũ tinh thần”.
 - Khi demo, giảng viên có thể hỏi chéo bất kỳ thành viên nào về **sender**, **receiver**, **DES-CBC**, **padding**, **threat model** và **ethics**.
 
-## Team members
-- **Thành viên 1**: TODO_MEMBER_1 - MSSV: TODO_MEMBER_1_ID
-- **Thành viên 2**: TODO_MEMBER_2 - MSSV: TODO_MEMBER_2_ID
+Team members
+Thành viên 1: [Tên thành viên 1] - MSSV: [MSSV 1]
 
-## Task division
-- **Thành viên 1 phụ trách chính**: TODO_ROLE_MEMBER_1
-- **Thành viên 2 phụ trách chính**: TODO_ROLE_MEMBER_2
-- **Phần làm chung**: TODO_SHARED_WORK
+Thành viên 2: [Tên thành viên 2] - MSSV: [MSSV 2]
 
-## Demo roles
-- **Bạn nào demo Sender / gói tin / log gửi**: TODO_DEMO_ROLE_1
-- **Bạn nào demo Receiver / giải mã / log nhận**: TODO_DEMO_ROLE_2
-- **Cả hai cùng trả lời threat model và ethics**: TODO_DEMO_ROLE_SHARED
+Task division
+Thành viên 1 phụ trách chính: Xây dựng logic sender.py, triển khai cơ chế đóng gói gói tin (Packet) và quản lý logs/.
 
-## Mục tiêu học tập
-- Hiểu luồng hoạt động của hệ thống Sender/Receiver qua TCP socket.
-- Mô tả được vai trò của **key**, **IV**, **padding PKCS#7**, **header độ dài**.
-- Cài đặt và chạy được hệ thống gửi/nhận dữ liệu mã hoá DES qua socket.
-- Viết được **threat model** ngắn gọn cho hệ thống.
-- Ghi nhận được các hạn chế bảo mật của thiết kế hiện tại và nêu hướng cải tiến.
+Thành viên 2 phụ trách chính: Xây dựng logic receiver.py, viết bộ kiểm thử tự động trong thư mục tests/ và phân tích threat-model-1page.md.
 
-## Cấu trúc repo
-- `sender.py`: tiến trình người gửi
-- `receiver.py`: tiến trình người nhận
-- `des_socket_utils.py`: hàm pad/unpad, encrypt/decrypt, build/parse packet
-- `tests/`: kiểm thử tự động
-- `logs/`: nơi lưu log minh chứng
-- `threat-model-1page.md`: threat model cho hệ thống
-- `peer-review-response.md`: ghi nhận góp ý và chỉnh sửa sau peer review
-- `report-1page.md`: báo cáo ngắn
+Phần làm chung: Thiết kế thư viện dùng chung des_socket_utils.py, triển khai logic Padding PKCS#7 thủ công và viết báo cáo report-1page.md.
 
-## How to run
-### 1) Cài môi trường
-```bash
+Demo roles
+Bạn nào demo Sender / gói tin / log gửi: [Tên thành viên 1]
+
+Bạn nào demo Receiver / giải mã / log nhận: [Tên thành viên 2]
+
+Cả hai cùng trả lời threat model và ethics: Cả hai thành viên cùng tham gia trả lời.
+
+Mục tiêu học tập
+Hiểu luồng hoạt động của hệ thống Sender/Receiver qua TCP socket.
+
+Làm chủ cơ chế Key, IV, và Padding PKCS#7 trong mật mã khối.
+
+Hiểu tầm quan trọng của Header độ dài khi truyền dữ liệu qua Stream Socket.
+
+Phân tích rủi ro bảo mật (Threat Model) đối với việc trao đổi khóa trực tiếp.
+
+Cấu trúc repo
+sender.py: Tiến trình gửi bản tin, tạo Key/IV và mã hóa.
+
+receiver.py: Tiến trình lắng nghe, nhận đúng thứ tự header và giải mã.
+
+des_socket_utils.py: Chứa các hàm cốt lõi: mã hóa, giải mã, đóng gói packet.
+
+tests/: Bao gồm các kiểm thử quan trọng: test_padding, test_tamper_negative, test_wrong_key.
+
+logs/: Lưu vết các phiên chạy thực tế để làm minh chứng.
+
+threat-model-1page.md: Phân tích chi tiết các lỗ hổng của hệ thống.
+
+peer-review-response.md: Ghi nhận các chỉnh sửa sau khi review chéo.
+
+report-1page.md: Báo cáo ngắn gọn kết quả thực hiện.
+
+How to run
+1) Cài môi trường
+Bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-```
-
-### 2) Chạy Receiver
-```bash
+2) Chạy Receiver
+Bash
 python receiver.py
-```
-
-### 3) Chạy Sender
-```bash
+3) Chạy Sender
+Bash
 python sender.py
-```
-Rồi nhập bản tin khi chương trình hỏi.
+Input / Output
+Input: Bản tin văn bản từ bàn phím hoặc biến môi trường MESSAGE.
 
-### 4) Chạy demo local bằng biến môi trường
-Terminal 1:
-```bash
-RECEIVER_PORT=6001 python receiver.py
-```
+Output: Hiển thị Key, IV dưới dạng Hex và nội dung bản tin gốc sau khi giải mã tại Receiver.
 
-Terminal 2:
-```bash
-SERVER_IP=127.0.0.1 SERVER_PORT=6001 MESSAGE="Xin chao FIT4012" python sender.py
-```
+Ethics & Safe use
+Hệ thống chỉ sử dụng cho mục đích học tập tại môn học FIT4012.
 
-## Input / Output
-### Input
-- Sender nhận bản tin từ bàn phím hoặc từ biến môi trường `MESSAGE`.
-- Receiver nhận packet qua TCP socket.
+Không sử dụng dữ liệu nhạy cảm để demo.
 
-### Output
-- Sender in ra: thông báo gửi thành công, `Key`, `IV`, `Ciphertext`.
-- Receiver in ra: bản tin gốc sau giải mã.
-- Bạn cần lưu **log chạy thật** vào thư mục `logs/` để làm minh chứng nộp bài.
+Nhóm hiểu rõ DES là thuật toán cũ và việc gửi Key trực tiếp trên đường truyền là không an toàn cho các ứng dụng thực tế.
 
-## Deliverables bắt buộc
-- `README.md`
-- `report-1page.md`
-- `threat-model-1page.md`
-- `peer-review-response.md`
-- `tests/` có ít nhất 5 test
-- `logs/` có log chạy thật của các ca kiểm thử
-- thông tin **nhóm 2 người + phân công** trong `README.md`
+Submission contract cho CI
+[x] Có đủ file nộp bài theo cấu trúc repo.
 
-## Threat-model awareness
-Vì lab này đang dùng mô hình **gửi key và IV dưới dạng plaintext trên cùng luồng TCP**, bạn cần chỉ ra đây là điểm yếu bảo mật nghiêm trọng nếu đưa ra thực tế. Trong `threat-model-1page.md`, hãy nêu rõ:
-- assets
-- attacker model
-- threats
-- mitigations
-- residual risks
+[x] Có ít nhất 5 test (bao gồm cả negative tests cho tamper và wrong key).
 
-## Ethics & Safe use
-- Chỉ chạy demo trên máy cá nhân, VM, hoặc mạng nội bộ phục vụ học tập.
-- Không quét cổng, không thử nghiệm lên hệ thống không thuộc phạm vi lớp học.
-- Không dùng dữ liệu cá nhân thật hoặc dữ liệu nhạy cảm để demo.
-- Không trình bày hệ thống này như một giải pháp an toàn sẵn sàng triển khai ngoài đời.
-- Nếu tham khảo code/tài liệu, hãy ghi nguồn rõ ràng.
-- Tôn trọng nguyên tắc trung thực học thuật.
+[x] README đã khai báo đầy đủ thành viên và phân công.
 
-## Submission contract cho CI
-CI sẽ kiểm tra:
-- có đủ file nộp bài
-- có ít nhất 5 test
-- chạy được kiểm thử local sender/receiver
-- có negative test cho **tamper** và **wrong key**
-- `README.md` đã khai báo **2 thành viên**, **phân công**, **vai trò demo**
-- các file `report-1page.md`, `threat-model-1page.md`, `peer-review-response.md` không còn dòng `TODO_STUDENT`
-- thư mục `logs/` có ít nhất 1 file log thật
+[x] Các file báo cáo .md không còn dòng TODO_STUDENT hoặc TODO_MEMBER.
 
-Nếu CI đỏ, đừng hoảng. Cứ xem nó như một trợ giảng hơi khó tính nhưng vẫn muốn bạn qua môn.
+[x] Thư mục logs/ đã có file log minh chứng.
