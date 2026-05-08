@@ -76,9 +76,9 @@ def test_sender_receiver_roundtrip():
 
     # Receiver decrypt
     decrypted = decrypt_des_cbc(
-        recv_cipher,
         recv_key,
-        recv_iv
+        recv_iv,
+        recv_cipher
     )
 
     # So sánh plaintext ban đầu
