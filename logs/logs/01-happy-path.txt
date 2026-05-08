@@ -1,0 +1,23 @@
+[Receiver] Dang lang nghe tai 127.0.0.1:5000
+
+--------------------------------------------------
+
+[Sender]
+Message: Xin chao FIT4012
+Key: 3132333435363738
+IV: 6162636465666768
+Ciphertext: 7ab1e0f0d91a8bc04fd98aa12b7ce301
+Packet Length: 36 bytes
+Status: Sent successfully
+
+--------------------------------------------------
+
+[Receiver]
+Client: 127.0.0.1
+Received Packet: OK
+Key: 3132333435363738
+IV: 6162636465666768
+Ciphertext: 7ab1e0f0d91a8bc04fd98aa12b7ce301
+Plaintext: Xin chao FIT4012
+Padding: Valid
+Decrypt Status: Success
