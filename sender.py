@@ -6,8 +6,7 @@ SERVER_IP = os.getenv('SERVER_IP', '127.0.0.1')
 SERVER_PORT = int(os.getenv('SERVER_PORT', '6000'))
 MESSAGE_ENV = os.getenv('MESSAGE')
 LOG_FILE = os.getenv('SENDER_LOG_FILE', '')
-
-
+ 
 def get_message() -> bytes:
     if MESSAGE_ENV is not None:
         return MESSAGE_ENV.encode('utf-8')
