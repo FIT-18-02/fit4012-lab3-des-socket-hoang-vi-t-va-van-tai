@@ -1,7 +1,7 @@
 # Phân tích Threat Model - Lab 3
 
 ## 1. Asset Identification (Tài sản cần bảo vệ)
-* **Nội dung bản rõ (Plaintext):** Thông tin nhạy cảm người dùng gửi đi.
+* **Nội dung bản rõ (Plaintext):** Thông tin nhạy cảm ngưi dùng gửi đi.ờ
 * **Tính toàn vẹn dữ liệu:** Đảm bảo gói tin không bị chỉnh sửa trên đường truyền.
 * **Tính riêng tư:** Đảm bảo chỉ người nhận (Receiver) hợp lệ mới có thể đọc tin nhắn.
 
