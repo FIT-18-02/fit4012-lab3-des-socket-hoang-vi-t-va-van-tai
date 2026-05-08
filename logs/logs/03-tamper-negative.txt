@@ -1,8 +1,0 @@
-=== LOG MINH CHỨNG CHẠY THÀNH CÔNG ===
-Thời gian: 2024-05-22
-Thành viên: Bùi Văn Tài, Nguyễn Hoàng Việt
-
-[SENDER] Gửi: "Hello Lab 3"
-[SENDER] Key: 4a6f686e446f6531 (Hex)
-[RECEIVER] Nhận gói tin...
-[RECEIVER] Giải mã thành công: "Hello Lab 3"
