@@ -3,7 +3,12 @@ __pycache__/
 *.pyc
 *.pyo
 *.log
+
+# Ignore txt except logs proof
 *.txt
+!logs/*.txt
+
 !.gitkeep
+
 venv/
 .venv/
